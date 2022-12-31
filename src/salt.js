@@ -1,12 +1,14 @@
 const { scryptSync, randomBytes, timingSafeEqual } = require('crypto');
 
 function signup(email, password) {
+    // The purpose of salt is to defeat rainbow tables, it is not a key
     const salt = randomBytes(16).toString('hex');
+
     const hashedPassword = scryptSync(password, salt, 64).toString('hex');
 
     const user = { email, password: `${salt}:${hashedPassword}` }
   
-    users.push(user);
+    /* users.push(user); */
 
     return user
 }
@@ -27,4 +29,4 @@ function login(email, password) {
     }
 }
 
-
+console.log(signup('test@test.com', 'password'))

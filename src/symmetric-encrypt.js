@@ -2,9 +2,14 @@ const { createCipheriv, randomBytes, createDecipheriv } = require('crypto');
 
 /// Cipher
 
-const message = 'i like turtles';
+const message = 'password';
 const key = randomBytes(32);
+
+// Initialization Vector
 const iv = randomBytes(16);
+
+console.log('key', key)
+console.log('iv', iv)
 
 const cipher = createCipheriv('aes256', key, iv);
 
