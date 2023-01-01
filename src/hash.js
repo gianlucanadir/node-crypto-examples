@@ -1,6 +1,8 @@
 const { createHash } = require('crypto');
 
 // Create a string hash
+// Vulnerability: for the same password we have the same generated hash.
+// With rainbow tables you can obtain the password.
 
 function hash(input) {
     return createHash('md5').update(input).digest('hex');

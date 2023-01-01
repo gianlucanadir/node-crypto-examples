@@ -2,10 +2,13 @@ const { createCipheriv, randomBytes, createDecipheriv } = require('crypto');
 
 /// Cipher
 
-const message = 'password';
+const message = 'password'
+
+// The key is used for encrypt and decrypt the message
 const key = randomBytes(32);
 
 // Initialization Vector
+// Used for generated different output for the same input
 const iv = randomBytes(16);
 
 console.log('key', key)

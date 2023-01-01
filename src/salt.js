@@ -1,7 +1,7 @@
 const { scryptSync, randomBytes, timingSafeEqual } = require('crypto');
 
 function signup(email, password) {
-    // The purpose of salt is to defeat rainbow tables, it is not a key
+    // The purpose of salt is to defeat rainbow tables, it is not a key, the purpose is to create different hashes for the same input.
     const salt = randomBytes(16).toString('hex');
 
     const hashedPassword = scryptSync(password, salt, 64).toString('hex');

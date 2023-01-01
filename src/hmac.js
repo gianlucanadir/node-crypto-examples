@@ -1,5 +1,8 @@
 const { createHmac } = require('crypto');
 
+// HMAC is a keyd hash of data - like a hash with a password
+// For the same key it generates the same hash
+
 const key = 'super-secret!';
 const message = 'hello';
 
