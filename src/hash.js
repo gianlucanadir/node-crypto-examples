@@ -5,7 +5,15 @@ const { createHash } = require('crypto');
 // With rainbow tables you can obtain the password.
 
 function hash(input) {
-    return createHash('md5').update(input).digest('hex');
+    // if you want to crack the generated password with John the Ripper,
+    // just save the hash to a txt file and then use the john <file> command
+  
+    // cracked with john the ripper using: john --format=Raw-MD5 <file> 
+    /* return createHash('md5').update(input).digest('hex'); */
+  
+    // cracked with john the ripper using: john --format=Raw-SHA1-AxCrypt <file>
+    return createHash('sha1').update(input).digest('hex');
+
     /* return createHash('sha256').update(input).digest('base64'); */
 }
 
